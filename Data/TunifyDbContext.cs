@@ -14,7 +14,6 @@ namespace Tunify_Platform.Data
         public DbSet<Subscription> Subscriptions { get; set; }
         public DbSet<Song> Songs { get; set; }
         public DbSet<PlaylistSong> PlaylistSongs { get; set; }
-
         public DbSet<Playlist> Playlists { get; set; }
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Album> Albums { get; set; }
@@ -23,6 +22,7 @@ namespace Tunify_Platform.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<User>().HasKey(u => u.User_Id);
             modelBuilder.Entity<Subscription>().HasKey(s => s.SubscriptionId);
             modelBuilder.Entity<Song>().HasKey(s => s.SongId);
@@ -46,7 +46,5 @@ namespace Tunify_Platform.Data
            new Playlist { PlaylistId = 1, Created_Date = new DateTime(2024, 1, 15), Playlist_Name = "first song", UserId = 1 }
            );
         }
-
-
     }
 }
