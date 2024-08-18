@@ -8,5 +8,7 @@
         public int AlbumId { get; set; }
         public TimeSpan Duration { get; set; }
         public string Genre { get; set; }
+
+        public ICollection<PlaylistSong> playlistSongs { get; set; }
     }
 }

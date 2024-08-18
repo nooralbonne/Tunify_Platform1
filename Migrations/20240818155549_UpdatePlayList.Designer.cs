@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tunify_Platform.Data;
 
@@ -11,9 +12,11 @@ using Tunify_Platform.Data;
 namespace Tunify_Platform.Migrations
 {
     [DbContext(typeof(TunifyDbContext))]
-    partial class TunifyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240818155549_UpdatePlayList")]
+    partial class UpdatePlayList
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,8 +118,6 @@ namespace Tunify_Platform.Migrations
                     b.HasKey("PlaylistSongsId");
 
                     b.HasIndex("PlaylistId");
-
-                    b.HasIndex("SongId");
 
                     b.ToTable("PlaylistSongs");
                 });
@@ -234,20 +235,9 @@ namespace Tunify_Platform.Migrations
                         .HasForeignKey("PlaylistId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Tunify_Platform.Models.Song", null)
-                        .WithMany("playlistSongs")
-                        .HasForeignKey("SongId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Tunify_Platform.Models.Playlist", b =>
-                {
-                    b.Navigation("playlistSongs");
-                });
-
-            modelBuilder.Entity("Tunify_Platform.Models.Song", b =>
                 {
                     b.Navigation("playlistSongs");
                 });
