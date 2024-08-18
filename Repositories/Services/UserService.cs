@@ -51,7 +51,7 @@ namespace Tunify_Platform.Repositories.Services
                 oldUser.Username = user.Username;
                 oldUser.Email = user.Email;
                 oldUser.Join_Date = user.Join_Date;
-                oldUser.Subscription_Id = user.Subscription_Id;
+                oldUser.SubscriptionId = user.SubscriptionId;
 
                 await _context.SaveChangesAsync();
                 return oldUser;

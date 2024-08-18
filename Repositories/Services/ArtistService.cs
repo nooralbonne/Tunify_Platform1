@@ -4,6 +4,7 @@ using Tunify_Platform.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Tunify_Platform.Repositories.Services
 {
@@ -51,5 +52,27 @@ namespace Tunify_Platform.Repositories.Services
                 await _context.SaveChangesAsync();
             }
         }
+
+       public async Task<Song> AddSongToArtist(int artistId, int songId)
+        {
+            var song = await _context.Songs.FindAsync(songId);
+            if (song != null)
+            {
+                song.ArtistId = artistId;
+                _context.Entry(song).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+            }
+            var result = _context.Songs.Where(a => a.ArtistId == artistId).FirstOrDefault();
+            return result;
+
+        }
+
+        public async Task<List<Song>> GetSongsForArtists(int ArtistsId)
+        {
+            var ArtistsSongsVar = await _context.Songs
+                .Where(pl => pl.ArtistId == ArtistsId).ToListAsync();
+            return ArtistsSongsVar;
+        }
     }
+    //
 }

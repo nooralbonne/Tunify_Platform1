@@ -40,7 +40,7 @@ namespace Tunify_Platform.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, User user)
         {
-            if (id != user.User_Id)
+            if (id != user.UserId)
             {
                 return BadRequest();
             }
@@ -59,7 +59,7 @@ namespace Tunify_Platform.Controllers
         public async Task<ActionResult<User>> AddUser(User user)
         {
             var createdUser = await _userRepository.AddUserAsync(user);
-            return CreatedAtAction(nameof(GetUserById), new { id = createdUser.User_Id }, createdUser);
+            return CreatedAtAction(nameof(GetUserById), new { id = createdUser }, createdUser);
         }
 
         // DELETE: api/Users/5
