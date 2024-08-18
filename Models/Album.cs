@@ -6,6 +6,6 @@
         public string Album_Name { get; set; }
         public DateTime Release_Date { get; set; }
         public int ArtistId { get; set; }
-       
+       //-
     }
 }
