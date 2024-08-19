@@ -147,6 +147,7 @@ Tunify Platform is a web application that allows users to manage their music lib
 ### What is the Repository Design Pattern?
 The Repository Design Pattern abstracts and encapsulates data access logic, promoting better organization and separation of concerns.
 
+
 ### Benefits
 
 - **Separation of Concerns**: Keeps data access code separate from business logic.
@@ -166,3 +167,68 @@ The Repository Design Pattern abstracts and encapsulates data access logic, prom
 
 - Ensure all repositories are correctly implemented and controllers are refactored to use them.
 - Update this `README.md` to include information on the Repository Design Pattern and its benefits.
+
+## Swagger UI Integration (Lab 14)
+
+### Overview
+In Lab 14, we have integrated Swagger UI into the Tunify Platform. Swagger UI provides an interactive interface to visualize and interact with the API's endpoints, making it easier to understand and test the API.
+
+![SQLDatabaswAzure]()
+![SwaggerUI]()
+
+### Setup and Configuration
+
+1. **Install Swashbuckle.AspNetCore**
+   - Open the NuGet Package Manager Console.
+   - Run the following command to install the Swashbuckle.AspNetCore package:
+     ```shell
+     Install-Package Swashbuckle.AspNetCore
+     ```
+
+2. **Configure Swagger in Program.cs**
+   - Add the Swagger services in `Program.cs`:
+     ```csharp
+     builder.Services.AddSwaggerGen(options =>
+     {
+         options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+         {
+             Title = "Tunify API",
+             Version = "v1",
+             Description = "API for managing playlists, songs, and artists in the Tunify Platform"
+         });
+     });
+     ```
+
+   - Enable Swagger and Swagger UI in the `Program.cs` file:
+     ```csharp
+     app.UseSwagger(options =>
+     {
+         options.RouteTemplate = "api/{documentName}/swagger.json";
+     });
+
+     app.UseSwaggerUI(options =>
+     {
+         options.SwaggerEndpoint("/swagger/v1/swagger.json", "Tunify API v1");
+         options.RoutePrefix = "";
+     });
+     ```
+
+3. **Test the Swagger UI**
+   - Launch the application and navigate to the root URL to view the Swagger UI.
+   - Use the Swagger UI to interact with your API endpoints, ensuring that all endpoints are documented and functional.
+
+### Accessing and Using Swagger UI
+
+- After starting the application, navigate to the root URL (e.g., `http://localhost:5000/`) to access the Swagger UI.
+- The Swagger UI provides a user-friendly interface to interact with the API. You can test endpoints, view request/response models, and see example payloads.
+
+### Benefits of Swagger UI
+
+- **Interactive Documentation**: Swagger UI allows you to view and test API endpoints directly from the browser.
+- **Ease of Use**: Developers can quickly understand the API structure and available operations without referring to separate documentation.
+- **Auto-Generated**: Documentation is automatically generated from the API's codebase, ensuring it's always up to date.
+
+### Conclusion
+
+With Swagger UI integrated, the Tunify Platform now includes comprehensive, interactive API documentation that enhances the developer experience by providing a clear and accessible way to explore and test the API.
+
