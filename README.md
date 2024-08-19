@@ -10,8 +10,8 @@ Tunify Platform is a web application that allows users to manage their music lib
 
 - **User**: Represents a user of the platform.
   - **UserId**: Unique identifier for the user.
-  - **Username**: User’s name.
-  - **Email**: User’s email address.
+  - **Username**: Userâ€™s name.
+  - **Email**: Userâ€™s email address.
   - **Join_Date**: Date when the user joined.
   - **SubscriptionId**: References the Subscription.
   - **Subscription**: Navigation property to the Subscription.
@@ -44,8 +44,8 @@ Tunify Platform is a web application that allows users to manage their music lib
 
 - **Artist**: Represents a music artist.
   - **ArtistId**: Unique identifier for the artist.
-  - **Name**: Artist’s name.
-  - **Bio**: Artist’s biography.
+  - **Name**: Artistâ€™s name.
+  - **Bio**: Artistâ€™s biography.
   - **Songs**: Collection of Songs by this artist.
   - **Albums**: Collection of Albums by this artist.
 
@@ -173,8 +173,8 @@ The Repository Design Pattern abstracts and encapsulates data access logic, prom
 ### Overview
 In Lab 14, we have integrated Swagger UI into the Tunify Platform. Swagger UI provides an interactive interface to visualize and interact with the API's endpoints, making it easier to understand and test the API.
 
-![SQLDatabaswAzure]()
-![SwaggerUI]()
+![SQLDatabaswAzure](https://github.com/nooralbonne/Tunify_Platform1/blob/master/SQLDatabaswAzure.jpg)
+![SwaggerUI](https://github.com/nooralbonne/Tunify_Platform1/blob/master/SwaggerUI1.jpg)
 
 ### Setup and Configuration
 
