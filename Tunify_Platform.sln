@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TunifyPlatformTest", "..\TunifyPlatformTest\TunifyPlatformTest.csproj", "{80536AAF-C8C0-46C3-8E7C-8DD55F61E0C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tunify_Platform_Test", "..\Tunify_Platform_Test\Tunify_Platform_Test.csproj", "{914CC38D-3FC4-4EE3-AB64-5053693CBFC0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,18 +46,6 @@ Global
 		{80536AAF-C8C0-46C3-8E7C-8DD55F61E0C1}.Release|x64.Build.0 = Release|Any CPU
 		{80536AAF-C8C0-46C3-8E7C-8DD55F61E0C1}.Release|x86.ActiveCfg = Release|Any CPU
 		{80536AAF-C8C0-46C3-8E7C-8DD55F61E0C1}.Release|x86.Build.0 = Release|Any CPU
-		{914CC38D-3FC4-4EE3-AB64-5053693CBFC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{914CC38D-3FC4-4EE3-AB64-5053693CBFC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{914CC38D-3FC4-4EE3-AB64-5053693CBFC0}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{914CC38D-3FC4-4EE3-AB64-5053693CBFC0}.Debug|x64.Build.0 = Debug|Any CPU
-		{914CC38D-3FC4-4EE3-AB64-5053693CBFC0}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{914CC38D-3FC4-4EE3-AB64-5053693CBFC0}.Debug|x86.Build.0 = Debug|Any CPU
-		{914CC38D-3FC4-4EE3-AB64-5053693CBFC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{914CC38D-3FC4-4EE3-AB64-5053693CBFC0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{914CC38D-3FC4-4EE3-AB64-5053693CBFC0}.Release|x64.ActiveCfg = Release|Any CPU
-		{914CC38D-3FC4-4EE3-AB64-5053693CBFC0}.Release|x64.Build.0 = Release|Any CPU
-		{914CC38D-3FC4-4EE3-AB64-5053693CBFC0}.Release|x86.ActiveCfg = Release|Any CPU
-		{914CC38D-3FC4-4EE3-AB64-5053693CBFC0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

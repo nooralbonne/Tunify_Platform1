@@ -232,3 +232,52 @@ In Lab 14, we have integrated Swagger UI into the Tunify Platform. Swagger UI pr
 
 With Swagger UI integrated, the Tunify Platform now includes comprehensive, interactive API documentation that enhances the developer experience by providing a clear and accessible way to explore and test the API.
 
+## Identity Setup
+
+The Tunify Platform uses ASP.NET Core Identity for user authentication and management. This section provides instructions on how to use the registration, login, and logout features.
+
+### Registration
+
+
+![Register200status]()
+
+To register a new user:
+
+1. **Navigate to the Registration Page**: Access the registration page at `/Identity/Account/Register`.
+2. **Fill Out the Registration Form**:
+   - **Username**: Enter a unique username.
+   - **Email**: Provide a valid email address.
+   - **Password**: Create a strong password (at least 6 characters).
+   - **Confirm Password**: Re-enter the password for confirmation.
+3. **Submit the Form**: Click on the 'Register' button to create your account.
+
+After successful registration, you will be redirected to the login page.
+
+### Login
+
+![Login200status]()
+
+To log in to your account:
+
+1. **Navigate to the Login Page**: Access the login page at `/Identity/Account/Login`.
+2. **Fill Out the Login Form**:
+   - **Username or Email**: Enter your registered username or email.
+   - **Password**: Enter your password.
+3. **Submit the Form**: Click on the 'Login' button to access your account.
+
+If the login credentials are correct, you will be redirected to the home page or the last accessed page.
+
+### Logout
+
+![Logout200status]()
+
+To log out of your account:
+
+1. **Access the Logout Feature**: You can log out by clicking on the 'Logout' button located in the navigation menu or by visiting `/Identity/Account/Logout`.
+2. **Confirm Logout**: You will be logged out and redirected to the home page or login page.
+
+For additional security, ensure to log out from shared or public computers to protect your account.
+
+---
+
+For further customization or advanced usage, refer to the [ASP.NET Core Identity Documentation](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity).
