@@ -173,8 +173,8 @@ The Repository Design Pattern abstracts and encapsulates data access logic, prom
 ### Overview
 In Lab 14, we have integrated Swagger UI into the Tunify Platform. Swagger UI provides an interactive interface to visualize and interact with the API's endpoints, making it easier to understand and test the API.
 
-![SQLDatabaswAzure](https://github.com/nooralbonne/Tunify_Platform1/blob/master/SQLDatabaswAzure.jpg)
-![SwaggerUI](https://github.com/nooralbonne/Tunify_Platform1/blob/master/SwaggerUI1.jpg)
+![SQLDatabaswAzure](https://github.com/nooralbonne/Tunify_Platform1/blob/Identity/Assets/SQLDatabaswAzure.jpg)
+![SwaggerUI](https://github.com/nooralbonne/Tunify_Platform1/blob/Identity/Assets/SwaggerUI1.jpg)
 
 ### Setup and Configuration
 
@@ -239,7 +239,7 @@ The Tunify Platform uses ASP.NET Core Identity for user authentication and manag
 ### Registration
 
 
-![Register200status]()
+![Register200status](https://github.com/nooralbonne/Tunify_Platform1/blob/Identity/Assets/RegisterPic.jpg)
 
 To register a new user:
 
@@ -255,7 +255,7 @@ After successful registration, you will be redirected to the login page.
 
 ### Login
 
-![Login200status]( )
+![Login200status](https://github.com/nooralbonne/Tunify_Platform1/blob/Identity/Assets/LoginPic200status.jpg)
 
 To log in to your account:
 
@@ -269,7 +269,7 @@ If the login credentials are correct, you will be redirected to the home page or
 
 ### Logout
 
-![Logout200status]()
+![Logout200status](https://github.com/nooralbonne/Tunify_Platform1/blob/Identity/Assets/logout.jpg)
 
 To log out of your account:
 
