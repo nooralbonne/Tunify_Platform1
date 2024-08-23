@@ -81,5 +81,7 @@ namespace Tunify_Platform.Controllers
         {
             return _userRepository.GetUserByIdAsync(id) != null;
         }
+
     }
+
 }

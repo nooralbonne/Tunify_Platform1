@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Tunify_Platform.Data;
 using Tunify_Platform.Repositories.Interfaces;
 using Tunify_Platform.Repositories.Services;
+using Tunify_Platform.Models;
 
 namespace Tunify_Platform
 {
@@ -12,19 +14,33 @@ namespace Tunify_Platform
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllers();
 
+            // Get the connection string settings 
             string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-            
-            builder.Services.AddDbContext<TunifyDbContext>(options => options.UseSqlServer(connectionString));
+
+            // Add DbContext with SQL Server
+            builder.Services.AddDbContext<TunifyDbContext>(options =>
+                options.UseSqlServer(connectionString));
+
+            // Add Identity Service with ApplicationUser and ApplicationRole
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+            options.Password.RequireDigit = true;
+            options.Password.RequiredLength = 8;
+            options.Password.RequireNonAlphanumeric = false;
+            options.Password.RequireUppercase = true;
+            options.Password.RequireLowercase = false;
+            })
+                .AddEntityFrameworkStores<TunifyDbContext>()
+                .AddDefaultTokenProviders();
 
             // Register services
             builder.Services.AddScoped<IUserRepository, UserService>();
             builder.Services.AddScoped<ISongRepository, SongService>();
             builder.Services.AddScoped<IPlaylistRepository, PlaylistService>();
             builder.Services.AddScoped<IArtistRepository, ArtistService>();
+            builder.Services.AddScoped<IAccount, IdentityAccountService>();
 
-
-
-            //==============Lab 14=============//
+            // Add Swagger
             builder.Services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("tunifyApi", new Microsoft.OpenApi.Models.OpenApiInfo
@@ -37,25 +53,35 @@ namespace Tunify_Platform
 
             var app = builder.Build();
 
-            // call swagger service
-            app.UseSwagger(
-              options =>
-              {
-                  options.RouteTemplate = "api/{documentName}/swagger.json";
-              });
+            app.UseAuthentication();
+            //app.UseAuthorization();
 
-            // call swagger UI
+            // Call Swagger service
+            app.UseSwagger(options =>
+            {
+                options.RouteTemplate = "api/{documentName}/swagger.json";
+            });
+
+            // Call Swagger UI
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/api/tunifyApi/swagger.json", "Tunify API v1");
                 options.RoutePrefix = "";
             });
 
-            //================================//
-            //app.MapGet("/", () => "Hello World!");
             app.MapControllers();
+            app.MapGet("/newpage", () => "Hello World! from the new page");
 
             app.Run();
         }
     }
 }
+
+// for test
+
+//{
+//    "id": "1",
+//  "userName": "noor",
+//  "email": "noor@gmail.com",
+//  "password": "dsldsSASA423423$$$$$$$$$$$$$$$$$$$$655656"
+//}
