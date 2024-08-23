@@ -255,7 +255,7 @@ After successful registration, you will be redirected to the login page.
 
 ### Login
 
-![Login200status]()
+![Login200status]( )
 
 To log in to your account:
 
