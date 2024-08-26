@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TunifyPlatformTest", "..\TunifyPlatformTest\TunifyPlatformTest.csproj", "{80536AAF-C8C0-46C3-8E7C-8DD55F61E0C1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TunifyPlatform", "TunifyPlatform", "{C4AE82F4-AE9B-4E41-9148-63ED4F408A15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BBBC2F09-7B2F-498D-AF51-F250AE510E45} = {C4AE82F4-AE9B-4E41-9148-63ED4F408A15}
+		{80536AAF-C8C0-46C3-8E7C-8DD55F61E0C1} = {C4AE82F4-AE9B-4E41-9148-63ED4F408A15}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {035C9206-FCA6-4835-9BB1-80D3EEC67CF3}

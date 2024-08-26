@@ -4,6 +4,7 @@ using Tunify_Platform.Data;
 using Tunify_Platform.Repositories.Interfaces;
 using Tunify_Platform.Repositories.Services;
 using Tunify_Platform.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Tunify_Platform
 {
@@ -40,6 +41,23 @@ namespace Tunify_Platform
             builder.Services.AddScoped<IArtistRepository, ArtistService>();
             builder.Services.AddScoped<IAccount, IdentityAccountService>();
 
+
+            builder.Services.AddScoped<JwtTokenService>();
+
+            // add auth service to the app using jwt
+            builder.Services.AddAuthentication(
+                options =>
+                {
+                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                }
+                ).AddJwtBearer(
+                options =>
+                {
+                    options.TokenValidationParameters = JwtTokenService.ValidateToken(builder.Configuration);
+                });
+
             // Add Swagger
             builder.Services.AddSwaggerGen(options =>
             {
@@ -54,7 +72,7 @@ namespace Tunify_Platform
             var app = builder.Build();
 
             app.UseAuthentication();
-            //app.UseAuthorization();
+            app.UseAuthorization();
 
             // Call Swagger service
             app.UseSwagger(options =>
