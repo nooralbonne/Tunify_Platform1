@@ -9,10 +9,14 @@ namespace Tunify_Platform.Repositories.Services
     public class IdentityAccountService : IAccount
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        // inject jwt service
+        private JwtTokenService jwtTokenService;
 
-        public IdentityAccountService(UserManager<ApplicationUser> userManager)
+
+        public IdentityAccountService(UserManager<ApplicationUser> userManager, JwtTokenService jwtTokenService)
         {
             _userManager = userManager;
+            this.jwtTokenService = jwtTokenService;
         }
 
         public async Task<RegisterDto> Register(RegisterDto registerdUserDto, ModelStateDictionary modelState)
@@ -63,7 +67,8 @@ namespace Tunify_Platform.Repositories.Services
                 return new LoginDto()
                 {
                     Id = user.Id,
-                    Username = user.UserName
+                    Username = user.UserName,
+                    Token = await jwtTokenService.GenerateToken(user, System.TimeSpan.FromMinutes(7))
                 };
             }
 
